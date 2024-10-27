@@ -1,0 +1,21 @@
+{
+  "suitsSort": ["Club", "Diamond", "Heart", "Spade"],
+  "numberSort": [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K",
+    "A"
+  ],
+  "deckLimit": 1,
+  "playerCountLimit": 4,
+  "cardNumberForEachPlayer": 3
+}
