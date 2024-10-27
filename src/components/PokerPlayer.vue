@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { defineProps } from 'vue'
-import { Player } from './player/Player'
+import { Player } from '../entity/player/Player'
 import PokerCard from './PokerCard.vue'
 const props = defineProps({
   totalPlayers: {

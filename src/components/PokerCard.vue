@@ -8,8 +8,8 @@
 
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
-import type { Poker } from './poker/Poker'
-import { POKER_ICON, POKER_COLOR } from './poker/Poker'
+import type { Poker } from '../entity/poker/Poker'
+import { POKER_ICON, POKER_COLOR } from '../entity/poker/Poker'
 const props = defineProps<{
   poker: Poker
   showdown: boolean

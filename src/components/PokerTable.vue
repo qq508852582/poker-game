@@ -8,24 +8,30 @@
       :showdown="status === 'done'"
     />
 
-    <div v-if="status === 'init' || status === 'done'" @click="deal()">
+    <div class="winner" v-if="status === 'done'" @click="deal()">
+      WINNER IS {{ winner.name }}
+    </div>
+    <div
+      class="button"
+      v-if="status === 'init' || status === 'done'"
+      @click="deal()"
+    >
       DEAL
     </div>
-    <div v-if="status === 'drawn'" @click="showdown()">SHOWDWON</div>
-    <div v-if="status === 'done'" @click="deal()">
-      WINNER IS {{ winner.name }}
+    <div class="button" v-if="status === 'drawn'" @click="showdown()">
+      SHOWDWON
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Rule from './rule/Rule'
+import Rule from '../entity/rule/Rule'
 import PokerPlayer from './PokerPlayer.vue'
-import { PlayersFactory } from './player/PlayersFactory'
-import { Dealer } from './dealer/Dealer'
-import { PokerDeckFactory } from './poker/PokerDeckFactory'
+import { PlayersFactory } from '../entity/player/PlayersFactory'
+import { Dealer } from '../entity/dealer/Dealer'
+import { PokerDeckFactory } from '../entity/poker/PokerDeckFactory'
 import { computed, reactive, ref } from 'vue'
-import { ScoreCalculator } from './score/ScoreCalculator'
+import { ScoreCalculator } from '../entity/score/ScoreCalculator'
 
 const totalPlayers = Rule.playerCountLimit
 const players = reactive(PlayersFactory.factory(totalPlayers))
@@ -69,18 +75,23 @@ const winner = computed(() => {
 
   align-items: center;
 }
+.button {
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  padding: 8px;
+}
+.button:hover {
+  color: #666;
+  border: 1px solid #666;
+  background-color: f0f0f0;
+}
 
-.player {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background-color: #f0f0f0;
-  border: 2px solid #000;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
+.winner {
+  color: #fff;
   font-weight: bold;
+  font-size: 28px;
 }
 </style>

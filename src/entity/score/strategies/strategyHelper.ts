@@ -1,5 +1,5 @@
 import type { Poker, POKER_NUMBER, POKER_SUIT } from '@/components/poker/Poker'
-import Rule from '@/components/rule/Rule'
+import Rule from '@/entity/rule/Rule'
 import { groupBy } from 'lodash'
 
 export const getMostAndBigestCardGroup = (cards: Poker[]) => {
